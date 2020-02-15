@@ -8,7 +8,7 @@ import os.path
 
 
 
-def main():
+def main(): # авторизация на сайте
     s = requests.session()
     email = 'weheweh197@nwesmail.com'
     password = 'ilh2uhbweipfh'
@@ -27,7 +27,7 @@ def main():
     file.close()
 
 
-def file_answer():
+def file_answer(): # проверка существования файла и чтение
     main()
     file_path = "answer.txt"
     if (os.path.exists(file_path) == True):
@@ -35,3 +35,7 @@ def file_answer():
         return str(f.read())
     else:
         return str("error")
+
+def file_path(): # проверка существования файла
+    file_path = "out_page.html"
+    return os.path.exists(file_path)
