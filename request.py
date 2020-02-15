@@ -1,14 +1,9 @@
-# авторизация на сайте
-# out_page.html - записывается страница после авторизации
-# answer.txt - содержит ответ
-
 import requests
 from requests.auth import HTTPBasicAuth
 import os.path
 
 
-
-def main(): # авторизация на сайте
+def main():
     s = requests.session()
     email = 'weheweh197@nwesmail.com'
     password = 'ilh2uhbweipfh'
@@ -27,7 +22,7 @@ def main(): # авторизация на сайте
     file.close()
 
 
-def file_answer(): # проверка существования файла и чтение
+def file_answer():
     main()
     file_path = "answer.txt"
     if (os.path.exists(file_path) == True):
@@ -36,6 +31,6 @@ def file_answer(): # проверка существования файла и �
     else:
         return str("error")
 
-def file_path(): # проверка существования файла
+def file_path():
     file_path = "out_page.html"
     return os.path.exists(file_path)
