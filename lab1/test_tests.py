@@ -7,10 +7,9 @@ import os.path
 # б) база данных содержит необходимые колонки,
 # в) в базе данных есть строки и их не менее 10-ти
 
-app.create_tables()
-app.filling_tables()
 
 def test_create_tables():
+    app.create_tables()
     assert os.path.exists(app.name_db) == True
 
 def test_contains_columns_clients():
@@ -22,6 +21,7 @@ def test_contains_columns_orders():
     assert str(app.orders.select()) == p2
 
 def test_fill_rows_clients():
+    app.filling_tables()
     assert len(app.clients.select()) >= 10
 
 def test_fill_rows_orders():
