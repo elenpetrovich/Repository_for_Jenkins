@@ -2,22 +2,21 @@
 properties([disableConcurrentBuilds()])
 
 pipeline {
-    agent {
-        label 'master'
-        }
+    agent any
     options {
         timestamps()
     }
     stages {
         stage("First step") {
             steps {
+		sh 'cd lab'
 		sh 'pip install -r requirements.txt'
             }
         }
         stage("Second step") {
             steps {
                 sh 'pytest -v --junitxml=report.xml'
-				junit 'reports/**/lab/report.xml'
+				junit 'reports/**/*.xml' 
             }
         }
     }
