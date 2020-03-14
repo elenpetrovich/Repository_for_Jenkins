@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage("First step") {
             steps {
-		sh 'cd lab'
+		sh 'pwd'
 		sh 'pip3 install -r requirements.txt'
             }
         }
