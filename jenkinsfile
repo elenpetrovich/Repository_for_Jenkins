@@ -11,8 +11,13 @@ pipeline {
             steps {
                 //git 'https://github.com/elenpetrovich/Repository_for_Jenkins.git'
                 sh 'pip3 install -r requirements.txt'
-                sh 'pytest -v --junitxml=report.xml'
-                junit 'reports/**/*.xml'
+            }
+        }
+        stage("Second step") {
+            steps {
+                sh 'pytest --version'
+                sh 'python -m pytest -v --junitxml=report.xml'
+				junit 'reports/**/*.xml'
             }
         }
     }
